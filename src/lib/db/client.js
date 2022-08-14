@@ -1,5 +1,11 @@
-import { PrismaClient } from '@prisma/client'
+import { createClient } from "edgedb";
+import eEdge from "$lib/db/edge";
 
-export const prisma = new PrismaClient()
+export const edge = eEdge;
+export const edgeClient = createClient({
+    database: "Runiting",
+});
 
-// use `prisma` in your application to read and write data in your DB
+export const edgeQuery = async (query) => {
+    return await query.run(edgeClient);
+}
