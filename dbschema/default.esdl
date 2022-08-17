@@ -27,6 +27,7 @@ module default {
         };
     }
 
+
     type Race {
         required property name -> str;
         required property date -> datetime;
@@ -43,7 +44,9 @@ module default {
             default := datetime_current()
         };
 
-        multi link runners -> User;
+        multi link runners -> User {
+            property coordinates -> array<json>;
+        };
         multi link administrators -> User;
         required link owner -> User;
     }
