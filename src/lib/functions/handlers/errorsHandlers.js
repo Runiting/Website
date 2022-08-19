@@ -1,12 +1,12 @@
-const handleErrors = (status, code, errors) => {
-    return {
+export const handleErrors = (status, code, errors) => {
+    return new Response(JSON.stringify({
         status,
         body: {
             pass: false,
             code,
             errors
         }
-    }
+    }));
 }
 
 export const handleSchemaErrors = (schema) => {
