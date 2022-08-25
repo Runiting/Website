@@ -1,6 +1,6 @@
 import { loginSchema } from "$lib/schemas/auth.js";
 import bcrypt from "bcryptjs";
-// import { handleSchemaErrors, handleErrors } from "$lib/functions/handlers/errorsHandlers.js";
+import { handleSchemaErrors, handleErrors } from "$lib/functions/handlers/errorsHandlers.js";
 import { edge, edgeQuery } from "$lib/db/client.js";
 import jwt from "jsonwebtoken";
 
@@ -12,7 +12,7 @@ export async function POST({ request, setHeaders, url }) {
 
     if (!schema.success) {
         console.log(schema);
-        // return handleSchemaErrors(schema);
+        return handleSchemaErrors(schema);
     }
 
     // Check if a user exist in the database
@@ -32,31 +32,20 @@ export async function POST({ request, setHeaders, url }) {
     const result = await bcrypt.compare(body.password, user.password);
 
     if (!result) {
-        return new Response(JSON.stringify({
-            status: 200,
-            body: {
-                pass: false,
-                // data: query
-            }
-        }))
+        return handleErrors(200, "INVALID_CREDENTIALS", "Email address and password don't correspond to a valid account");
     }
 
     // Create JWT token for the authenticated user
     const token = jwt.sign({
-        data: {
-            userId: user.id,
-        },
-        exp: "1h",
-    }, "JWT_SIGN")
+        userId: user.id,
+    }, "JWT_SIGN", { expiresIn: '1h' })
 
     setHeaders({
         "set-cookie": [`token=${token}; HttpOnly; Max-Age=${3600}; Path=/`],
     })
 
-    const response = new Response();
-    response.status = 200;
-    response.body = JSON.stringify({
+    return new Response(JSON.stringify({
         token,
         user
-    });
+    }))
 }

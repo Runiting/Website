@@ -19,8 +19,8 @@ export async function POST({ request }) {
         password: hashedPassword,
         phone: body.phone,
 
-        firstname: body.firstName,
-        lastname: body.lastName,
+        firstname: body.firstname,
+        lastname: body.lastname,
 
         createdAt: new Date(),
         updatedAt: new Date(),
