@@ -1,12 +1,10 @@
 export const handleErrors = (status, code, errors) => {
     return new Response(JSON.stringify({
         status,
-        body: {
-            pass: false,
-            code,
-            errors
-        }
-    }));
+        pass: false,
+        code,
+        errors
+    }), { status });
 }
 
 export const handleSchemaErrors = (schema) => {

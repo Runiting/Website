@@ -26,4 +26,9 @@ export const signUpSchema = z.object({
         .min(8, { message: 'Password must be at least 8 characters' })
         .max(20, { message: 'Password must be at most 20 characters' })
         .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,20}$/gm, { message: 'Password must contain at least one lowercase letter, one uppercase letter and one number' }),
+    phone: z
+        .string()
+        .regex(/^((\+)33|0)[1-9](\d{2}){4}$/gm, { message: "Phone number must be a french valid phone number" })
+        .optional()
+        .or(z.literal(''))
 })

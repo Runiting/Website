@@ -47,10 +47,7 @@ export async function POST({ request }) {
 
 
     return new Response(JSON.stringify({
-        status: 200,
-        body: {
-            pass: true,
-            data: query
-        }
-    }))
+        pass: true,
+        data: query
+    }), { status: 200, })
 }
