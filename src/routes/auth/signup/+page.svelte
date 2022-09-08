@@ -1,5 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
+	import Button from '$lib/components/atoms/Button.svelte';
 
 	import Loader from '$lib/components/atoms/Loader.svelte';
 	import TextInput from '$lib/components/atoms/TextInput.svelte';
@@ -45,12 +46,15 @@
 
 		await post('/api/auth/signup', user)
 			.then((data) => {
-				newNotification({
-					type: 'success',
-					title: 'Account created !',
-					description:
-						'Your account has been successfully created. You will be redirect in few seconds'
-				});
+				newNotification(
+					{
+						type: 'success',
+						title: 'Account created !',
+						description:
+							'Your account has been successfully created. You will be redirect in few seconds'
+					},
+					5
+				);
 
 				goto('/');
 			})
@@ -84,7 +88,7 @@
 						/>
 						<TextInput
 							name="password"
-							placeholder="***************"
+							placeholder="●●●●●●●●●●●●●●●●"
 							label="Password"
 							bind:content={password}
 							error={errors.password}
@@ -94,7 +98,7 @@
 					<div class="col">
 						<TextInput
 							name="lastname"
-							der="Doe"
+							placeholder="Doe"
 							label="Lastname"
 							bind:content={lastname}
 							error={errors.lastname}
@@ -115,7 +119,7 @@
 					one special character.
 				</p>
 
-				<button on:click={onSubmitForm}>Next</button>
+				<Button clickFunction={onSubmitForm} content="Next" width="50" />
 			</main>
 		{:else}
 			<main>
@@ -182,8 +186,11 @@
 				button {
 					background: #41295a;
 					border: none;
-					padding: 10px 30px;
-					border-radius: 18px;
+
+					height: 56px;
+					width: 50%;
+
+					border-radius: 10px;
 					color: #fff;
 
 					&:hover {

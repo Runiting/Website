@@ -8,11 +8,13 @@
 	export let notif;
 
 	onMount(() => {
-		progress.set(0);
+		if (notif.exp != undefined) {
+			progress.set(0);
+		}
 	});
 
 	const progress = tweened(1, {
-		duration: notif.exp
+		duration: notif.exp * 1000
 	});
 
 	progress.subscribe((n) => {
@@ -23,11 +25,16 @@
 </script>
 
 <div class="notification-box">
-	<span style:height="{$progress * 100}%" class={notif.type} />
+	<span style:height="{$progress * 100}%" class="{notif.type} notif-type" />
 
 	<div class="notification">
-		<div>
-			<h3>{notif.title}</h3>
+		<div class="notification-header">
+			<div class="notification-title">
+				<h3>{notif.title}</h3>
+			</div>
+			<div class="notification-close">
+				<ion-icon on:click={deleteNotification(notif.uuid)} name="close-outline" />
+			</div>
 		</div>
 		<div>
 			<p>{notif.description}</p>
@@ -42,10 +49,17 @@
 		background: white;
 		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-		.success {
+		.notif-type {
 			width: 15px;
 			height: inherit;
+		}
+
+		.success {
 			background-color: green;
+		}
+
+		.error {
+			background-color: red;
 		}
 
 		.notification {
@@ -56,6 +70,24 @@
 
 			width: 350px;
 			height: fit-content;
+
+			.notification-header {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+
+				.notification-close {
+					margin-right: 10px;
+
+					ion-icon {
+						font-size: 22px;
+						&:hover {
+							cursor: pointer;
+						}
+					}
+				}
+			}
 		}
 	}
 </style>

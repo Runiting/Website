@@ -48,10 +48,11 @@
 		display: flex;
 		flex-direction: column;
 
-		margin: 15px 0px;
+		margin-bottom: 15px;
 
 		label {
 			font-weight: 500;
+			margin-bottom: 8px;
 
 			span {
 				color: #4c4a4d;
@@ -60,20 +61,21 @@
 		}
 
 		input {
-			padding: 5px 0px;
+			padding: 5px 16px;
 			margin-left: 5px;
 
-			border: none;
-			border-bottom: 1px solid #4c4a4d;
+			border: 1px solid #4c4a4d;
+			border-radius: 10px;
 			outline: none;
 
-			font-size: 0.9rem;
+			font-size: 16px;
+			height: 46px;
 		}
 
 		p {
 			color: red;
-			font-size: 0.8rem;
-			margin: 5px;
+			font-size: 10px;
+			margin: 8px 0px 0 16px;
 		}
 	}
 </style>

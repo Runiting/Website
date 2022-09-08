@@ -45,6 +45,7 @@ export async function POST({ request, setHeaders, url }) {
     })
 
     return new Response(JSON.stringify({
+        pass: "true",
         token,
         user
     }))
