@@ -3,7 +3,7 @@ import eEdge from "$lib/db/edge";
 
 export const edge = eEdge;
 export const edgeClient = createClient({
-    database: "Runiting",
+    database: "dev",
 });
 
 export const edgeQuery = async (query) => {
