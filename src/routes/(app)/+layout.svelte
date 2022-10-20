@@ -1,6 +1,5 @@
 <script>
 	import Notifications from '$lib/components/organisms/Notifications.svelte';
-	import { notifications } from '$lib/stores/app.stores';
 </script>
 
 <div class="_">

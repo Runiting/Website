@@ -5,7 +5,10 @@ import autoPreprocess from 'svelte-preprocess';
 const config = {
 	preprocess: autoPreprocess(),
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+		csrf: {
+			checkOrigin: false
+		}
 	}
 };
 
