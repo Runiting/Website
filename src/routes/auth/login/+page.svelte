@@ -36,7 +36,7 @@
 		await post('/api/auth/login', userInformations)
 			.then((data) => {
 				console.log(data);
-				goto('/');
+				goto('/dashboard');
 			})
 			.catch((error) => {
 				console.log(error);
@@ -48,6 +48,12 @@
 			});
 	};
 </script>
+
+<svelte:window
+	on:keypress={(e) => {
+		e.which == 13 ? onSubmitForm(e) : null;
+	}}
+/>
 
 <div class="body-container">
 	<div class="left-col col">
@@ -81,7 +87,7 @@
 
 <style lang="scss">
 	.body-container {
-		background: linear-gradient(to right, #41295a, #2f0743);
+		background: var(--gray-900);
 
 		display: flex;
 		flex-direction: row;

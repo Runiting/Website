@@ -27,21 +27,25 @@
 
 <style lang="scss">
 	.__ {
+		background-color: var(--gray-900);
+
 		display: flex;
 		flex-direction: row;
 		height: 100vh;
 		width: 100%;
 
 		.menu {
-			background-color: #2f0743;
 			width: 300px;
+			border-right: 1px solid var(--a-gray-100);
+			background-color: var(--gray-800);
 
 			.user-informations {
 				display: flex;
 				flex-direction: column;
 				padding: 24px;
 
-				border-bottom: 1px solid #0d0213;
+				border-bottom: 1px solid var(--a-gray-100);
+				margin-bottom: 15px;
 
 				img {
 					width: 64px;
@@ -71,7 +75,6 @@
 		}
 
 		.page-container {
-			background-color: #41295a;
 			width: 100%;
 		}
 	}

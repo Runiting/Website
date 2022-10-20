@@ -64,6 +64,12 @@
 	};
 </script>
 
+<svelte:window
+	on:keypress={(e) => {
+		e.which == 13 ? onSubmitForm(e) : null;
+	}}
+/>
+
 <div class="body-container">
 	<div class="left-col col">
 		{#if !submitted}
@@ -119,7 +125,7 @@
 					one special character.
 				</p>
 
-				<Button clickFunction={onSubmitForm} content="Next" width="50" />
+				<Button clickFunction={onSubmitForm} content="Next" width="50%" />
 			</main>
 		{:else}
 			<main>
@@ -135,7 +141,7 @@
 
 <style lang="scss">
 	.body-container {
-		background: linear-gradient(to right, #41295a, #2f0743);
+		background: var(--gray-900);
 
 		display: flex;
 		flex-direction: row;
@@ -181,21 +187,6 @@
 					text-align: justify;
 					font-size: 0.8rem;
 					margin-bottom: 30px;
-				}
-
-				button {
-					background: #41295a;
-					border: none;
-
-					height: 56px;
-					width: 50%;
-
-					border-radius: 10px;
-					color: #fff;
-
-					&:hover {
-						cursor: pointer;
-					}
 				}
 			}
 		}

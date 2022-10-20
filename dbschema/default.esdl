@@ -49,6 +49,8 @@ module default {
         };
         multi link administrators -> User;
         required link owner -> User;
+
+        property circuit -> json;
     }
 
     type Sponsorship {

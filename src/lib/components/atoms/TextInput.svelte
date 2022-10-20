@@ -55,7 +55,7 @@
 			margin-bottom: 8px;
 
 			span {
-				color: #4c4a4d;
+				color: var(--gray-900);
 				font-size: 0.6rem;
 			}
 		}
@@ -64,17 +64,17 @@
 			padding: 5px 16px;
 			margin-left: 5px;
 
-			border: 1px solid #4c4a4d;
+			border: 1px solid var(--gray-900);
 			border-radius: 10px;
 			outline: none;
 
-			font-size: 16px;
+			font-size: 14px;
 			height: 46px;
 		}
 
 		p {
-			color: red;
-			font-size: 10px;
+			color: var(--red-500);
+			font-size: 12px;
 			margin: 8px 0px 0 16px;
 		}
 	}

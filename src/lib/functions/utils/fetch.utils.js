@@ -3,7 +3,7 @@ export function get(endpoint, fn = fetch) {
         method: 'GET',
         credentials: 'include'
     }).then((r) => r.json()).then(r => {
-        if (r.body.pass) {
+        if (r.pass) {
             return r;
         } else {
             throw r;

@@ -44,6 +44,8 @@
 
 <style lang="scss">
 	.notification-box {
+		border-radius: 10px;
+
 		display: flex;
 		flex-direction: row;
 		background: white;
@@ -52,6 +54,7 @@
 		.notif-type {
 			width: 15px;
 			height: inherit;
+			border-radius: 10px 0px 0px 10px;
 		}
 
 		.success {
@@ -63,6 +66,7 @@
 		}
 
 		.notification {
+			border-radius: 10px;
 			pointer-events: all;
 			background: white;
 			padding: 5px;

@@ -15,7 +15,7 @@ export async function POST({ request, setHeaders, url }) {
         return handleSchemaErrors(schema);
     }
 
-    // Check if a user exist in the database
+    // Check if a user exist in the DB
     const query = await edge.select(edge.User, user => ({
         id: true,
         email: true,

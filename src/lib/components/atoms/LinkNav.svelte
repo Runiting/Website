@@ -15,6 +15,7 @@
 <style lang="scss">
 	a {
 		text-decoration: none;
+
 		li {
 			cursor: pointer;
 			color: white;
@@ -23,7 +24,6 @@
 			align-items: center;
 
 			height: 48px;
-			// width: 90%;
 
 			padding-left: 24px;
 
@@ -39,8 +39,7 @@
 	}
 
 	.active {
-		background-color: #d3c7da;
-		border-radius: 0px 24px 24px 0px;
-		color: #0d0213;
+		background-color: var(--button-color);
+		border-radius: 0px 10px 10px 0px;
 	}
 </style>
