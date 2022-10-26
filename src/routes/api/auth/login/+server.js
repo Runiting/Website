@@ -40,13 +40,13 @@ export async function POST({ request, setHeaders, url }) {
         userId: user.id,
     }, "JWT_SIGN", { expiresIn: '1h' })
 
-    setHeaders({
-        "set-cookie": [`token=${token}; HttpOnly; Max-Age=${3600}; Path=/`],
-    })
-
     return new Response(JSON.stringify({
         pass: "true",
         token,
         user
-    }))
+    }), {
+        headers: {
+            "set-cookie": [`token=${token}; HttpOnly; Max-Age=${3600}; Path=/`],
+        }
+    })
 }
