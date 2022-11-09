@@ -8,6 +8,7 @@
 
 	export let required = true;
 	export let secret = false;
+	export let isEditable = true;
 </script>
 
 <div>
@@ -26,6 +27,7 @@
 			class="text-input"
 			{placeholder}
 			bind:value={content}
+			readonly={isEditable ? '' : 'readonly'}
 		/>
 	{:else}
 		<input
@@ -35,6 +37,7 @@
 			class="text-input"
 			{placeholder}
 			bind:value={content}
+			readonly={isEditable ? '' : 'readonly'}
 		/>
 	{/if}
 

@@ -5,7 +5,7 @@
 <div class="__">
 	<div class="menu">
 		<div class="user-informations">
-			<img src="me.jpg" alt="User Avatar" />
+			<!-- <img src="me.jpg" alt="User Avatar" /> -->
 			<h1>John DOE</h1>
 			<p>john.doe@email.com</p>
 		</div>
@@ -14,6 +14,7 @@
 			<ul>
 				<LinkNav link="/dashboard" title="Dashboard" icon="home-outline" />
 				<LinkNav link="/dashboard/races" title="Races" icon="flag-outline" />
+
 				<LinkNav link="/dashboard/sponsors" title="Sponsors" icon="people-outline" />
 				<LinkNav link="/dashboard/statistics" title="Statistics" icon="stats-chart-outline" />
 			</ul>
